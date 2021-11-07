@@ -10,25 +10,25 @@ import "./Common.sol";
 contract Admin is Common {
 
     /// @notice Ajout d'une adresse Ethereum à la liste blanche
-    /// @param _address address etehereum d'un utilisateurs ayant le droit de faire une proposition et de voter.
+    /// @param _address address Ethereum d'un utilisateur ayant le droit de faire une proposition et de voter.
     /// @dev On récupére le mapping whitelist qui est définit dans le contrat common.sol
     function addAddressWhitelist(address _address) public onlyOwner {
         require(whitelist[_address].isRegistered != true, "This address is already whitelisted !");
         Voter memory voterUsers = Voter(true, false, 0);
         whitelist[_address] = voterUsers;
-        defaultWorkflowStatus = WorkflowStatus.RegisteringVoters;
+        //defaultWorkflowStatus = WorkflowStatus.RegisteringVoters;
         emit VoterRegistered(_address);
-        emit WorkflowStatusChange(WorkflowStatus.RegisteringVoters, WorkflowStatus.RegisteringVoters);
+        //emit WorkflowStatusChange(WorkflowStatus.RegisteringVoters, WorkflowStatus.RegisteringVoters);
     }
     
-    /// @notice Récupére une addresse de la liste blanche
+    /// @notice Récupére un électeur de la liste blanche
     /// @param _address address Ethereum d'un utilisateur de la liste blanche.
     function isWhitelisted(address _address) public view onlyOwner returns (Voter memory){
         return whitelist[_address];
     }
     
     /// @notice Démarrage de l'enregistrement de propositions
-    /// @dev On modifie la valeurs de l'enum WorkflowStatus via la variable defaultWorkflowStatus qui est définit dans le contract common.sol
+    /// @dev On modifie la valeur de l'enum WorkflowStatus via la variable defaultWorkflowStatus qui est définit dans le contract common.sol
     function startsRecordingProposals() public onlyOwner {
         defaultWorkflowStatus = WorkflowStatus.ProposalsRegistrationStarted;
         emit WorkflowStatusChange(WorkflowStatus.RegisteringVoters, WorkflowStatus.ProposalsRegistrationStarted);
@@ -37,7 +37,7 @@ contract Admin is Common {
     /// @notice On arrête la session de l'enregistrement de propositions
     /// @dev On modifie la valeurs de l'enum WorkflowStatus via la variable defaultWorkflowStatus qui est définit dans le contract common.sol
     function stopRecordingProposals() public onlyOwner {
-          require(
+        require(
             defaultWorkflowStatus == WorkflowStatus.ProposalsRegistrationStarted, 
             "There are no proposal registration sessions in progress"
         );
@@ -53,13 +53,15 @@ contract Admin is Common {
             "The voting registration session is still in progress"
         );
         defaultWorkflowStatus = WorkflowStatus.VotingSessionStarted;
-        emit WorkflowStatusChange(WorkflowStatus.ProposalsRegistrationEnded, WorkflowStatus.ProposalsRegistrationEnded);
+        emit WorkflowStatusChange(WorkflowStatus.ProposalsRegistrationEnded, WorkflowStatus.VotingSessionStarted);
     }                 
     
     /// @notice On arrête la session de vote
     /// @dev Le modifier onlyVotingSessionIsStarted est définit dans le contrat common.sol
     function stopVotingSession() public onlyOwner onlyVotingSessionIsStarted {
+        //onlyVotingSessionIsStarted
         defaultWorkflowStatus = WorkflowStatus.VotingSessionEnded;
+        emit WorkflowStatusChange(WorkflowStatus.VotingSessionStarted, WorkflowStatus.VotingSessionEnded);
     }
     
     /// @notice On comptabilise les votes
@@ -77,6 +79,7 @@ contract Admin is Common {
             }
         }
         defaultWorkflowStatus = WorkflowStatus.VotesTallied;
+        emit WorkflowStatusChange(WorkflowStatus.VotingSessionEnded, WorkflowStatus.VotesTallied);
     }
 
 }

@@ -16,7 +16,7 @@ contract Common is Ownable{
     }
     
     //On initialise une variable defaultWorkflowStatus pour utliser l'enum
-    WorkflowStatus public defaultWorkflowStatus;
+    WorkflowStatus public defaultWorkflowStatus = WorkflowStatus.RegisteringVoters;
     
             
     modifier onlyVotingSessionIsStarted() {

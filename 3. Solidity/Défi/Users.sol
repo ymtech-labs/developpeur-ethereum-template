@@ -15,7 +15,7 @@ contract Users is Common {
     }
     
     /// @notice Ajout d'une proposition au contrat 
-    /// @param description  proposition de l'utilisateurs.
+    /// @param description proposition de l'utilisateur.
     /// @dev La fonction doit vérifier que l'utilisateurs est valide et que le statut soit bien en enregistrement de propositions
     function userAddProposal(string memory description) public onlyRegisteredInWhitelist {
         require(
