@@ -23,7 +23,7 @@ contract Admin is Common {
             whitelist[_address].isRegistered != true,
             "This address is already whitelisted !"
         );
-        white[_address] isRegistered = true;
+        whitelist[_address].isRegistered = true;
         emit VoterRegistered(_address);
         //emit WorkflowStatusChange(WorkflowStatus.RegisteringVoters, WorkflowStatus.RegisteringVoters);
     }
