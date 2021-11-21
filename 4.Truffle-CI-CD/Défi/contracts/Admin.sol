@@ -21,7 +21,7 @@ contract Admin is Common {
     {
         require(
             whitelist[_address].isRegistered != true,
-            "This address is already whitelisted !"
+            "This address is already whitelisted"
         );
         whitelist[_address].isRegistered = true;
         emit VoterRegistered(_address);
@@ -118,7 +118,7 @@ contract Admin is Common {
     {
         uint256 proposalsVoteCount = 0;
 
-        //TOS WARNING
+        //DOS WARNING
         for (uint256 i = 0; i < proposals.length; i++) {
             if (proposals[i].voteCount > proposalsVoteCount) {
                 proposalsVoteCount = proposals[i].voteCount;
