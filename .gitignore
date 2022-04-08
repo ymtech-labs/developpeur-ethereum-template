@@ -2,4 +2,5 @@ artifacts
 .deps
 vidéo
 node_modules
-VotingSingleFiles.sol
+VotingSingleFiles.
+.env
