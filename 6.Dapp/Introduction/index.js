@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 import Web3 from "web3";
 dotenv.config();
 
-const rpcURL = `https://ropsten.infura.io/v3/${process.env.PROJECT_ID}`;
+const rpcURL = `https://ropsten.infura.io/v3/${process.env.INFURA_ID}`;
 const web3 = new Web3(rpcURL);
 
 //Récupération Balance d'une adresse Ethereum
