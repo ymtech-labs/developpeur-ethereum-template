@@ -1,0 +1,14 @@
+{
+  "name": "simple-storage-react",
+  "version": "1.0.0",
+  "description": "Compile:              truffle compile\r   Migrate:              truffle migrate\r   Test contracts:       truffle test\r   Test dapp:            cd client && npm test\r   Run dev server:       cd client && npm run start\r   Build for production: cd client && npm run build",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
