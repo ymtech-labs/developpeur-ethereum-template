@@ -1,0 +1,14 @@
+{
+  "name": "html-javascript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "esbuild index.js --bundle --outfile=./dist/main.js"
+  },
+  "devDependencies": {
+    "esbuild": "^0.14.38",
+    "ethers": "^5.6.4"
+  },
+  "dependencies": {}
+}
