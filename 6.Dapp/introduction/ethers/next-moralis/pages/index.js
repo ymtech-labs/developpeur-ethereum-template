@@ -1,10 +1,21 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import { useMoralis } from "react-moralis";
+import { useMoralis, useWeb3Contract } from "react-moralis";
+import abi from "../contracts/simpleStorage";
+import { useEffect } from "react";
 
 export default function Home() {
   const { authenticate, isAuthenticated, user } = useMoralis();
+
+  const { runContractFunction } = useWeb3Contract({
+    abi,
+    contractAddress: "",
+    functionName: "store",
+    parms: {
+      _favoriteNumber: 42,
+    },
+  });
 
   return (
     <div className={styles.container}>
@@ -25,7 +36,10 @@ export default function Home() {
           {!isAuthenticated ? (
             <button onClick={() => authenticate()}>Authenticate</button>
           ) : (
-            user.get("username")
+            <>
+              {user.get("username")}
+              <button onClick={() => runContractFunction()}>execute</button>
+            </>
           )}
         </p>
 
