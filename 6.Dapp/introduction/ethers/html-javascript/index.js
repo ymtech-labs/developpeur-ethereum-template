@@ -125,3 +125,8 @@ export default async function execute() {
   const contract = new ethers.Contract(contractAdress, abi, signer);
   await contract.store(42);
 }
+
+connect();
+execute();
+
+alert("lool");
