@@ -5,6 +5,7 @@ require("@nomiclabs/hardhat-etherscan")
 require("dotenv").config()
 require("solidity-coverage")
 require("hardhat-deploy")
+require("hardhat-docgen")
 
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more
@@ -36,6 +37,11 @@ module.exports = {
       url: "http://localhost:8545",
       chainId: 31337,
     },
+  },
+  docgen: {
+    path: "./docs",
+    clear: true,
+    runOnCompile: true,
   },
   solidity: "0.8.8",
   etherscan: {

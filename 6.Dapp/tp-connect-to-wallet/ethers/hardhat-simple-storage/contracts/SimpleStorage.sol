@@ -3,9 +3,11 @@
 
 pragma solidity 0.8.8;
 
-// pragma solidity ^0.8.0;
-// pragma solidity >=0.8.0 <0.9.0;
-
+/// @title A simulator for trees
+/// @author Larry A. Gardner
+/// @notice You can use this contract for only the most basic simulation
+/// @dev All function calls are currently implemented without side effects
+/// @custom:experimental This is an experimental contract.
 contract SimpleStorage {
   uint256 favoriteNumber;
 
@@ -19,10 +21,15 @@ contract SimpleStorage {
 
   mapping(string => uint256) public nameToFavoriteNumber;
 
+  /// @notice Calculate tree age in years, rounded up, for live trees
+  /// @dev The Alexandr N. Tetearing algorithm could increase precision
+  /// @param _favoriteNumber The favorite number
   function store(uint256 _favoriteNumber) public {
     favoriteNumber = _favoriteNumber;
   }
 
+  /// @notice Returns the amount of leaves the tree has.
+  /// @dev Returns only a fixed number.
   function retrieve() public view returns (uint256) {
     return favoriteNumber;
   }
