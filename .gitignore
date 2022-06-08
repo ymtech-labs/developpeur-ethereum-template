@@ -1,4 +1,6 @@
 artifacts
+typechain-types
+cache
 .deps
 vidéo
 node_modules
