@@ -1,10 +1,13 @@
 # TP - Faire un premier ERC721 personnalisé
 
+## Collection
+[The Future of Bloke](https://testnets.opensea.io/collection/bloke-v2) 
+
 ## Contracts 
 
 ### NFT : 
-[Bloke.webp](https://ipfs.io/ipfs/bafyreidwqlpxz366tqdsgxdastt4erfmbikrtd7nkfj7655ifw5zb57abi/metadata.json) - ipfs://bafyreidwqlpxz366tqdsgxdastt4erfmbikrtd7nkfj7655ifw5zb57abi/metadata.json
-[Bloke.png](https://ipfs.io/ipfs/bafyreicdvbwuecxkxahb4bb7nsnfjzf4fpa5jlpbdyl5nfxiov366qectq/metadata.json) - ipfs://bafyreicdvbwuecxkxahb4bb7nsnfjzf4fpa5jlpbdyl5nfxiov366qectq/metadata.json
+[ExampleBlokeNFT](https://ipfs.io/ipfs/bafyreidwqlpxz366tqdsgxdastt4erfmbikrtd7nkfj7655ifw5zb57abi/metadata.json) - ipfs://bafyreidwqlpxz366tqdsgxdastt4erfmbikrtd7nkfj7655ifw5zb57abi/metadata.json <br>
+[The Perfect Bloke](https://ipfs.io/ipfs/bafyreicdvbwuecxkxahb4bb7nsnfjzf4fpa5jlpbdyl5nfxiov366qectq/metadata.json) - ipfs://bafyreicdvbwuecxkxahb4bb7nsnfjzf4fpa5jlpbdyl5nfxiov366qectq/metadata.json
 
 ### Testnet : Rinkeby
 [`Bloke`](https://rinkeby.etherscan.io/address/0xe3faa7ef2264b23af541b0a37b79532dfc245368) - 0xe3faa7ef2264b23af541b0a37b79532dfc245368  <br>
@@ -13,7 +16,7 @@
 ## Scripts
 
 ### Repository
-pnpm build — Compile script to store nft in ipfs
+pnpm build — Compile script to store nft in ipfs <br>
 pnpm store:nft — Store NFT in IPFS and Filecoin  
 
 ### Hardhat
