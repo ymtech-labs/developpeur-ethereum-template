@@ -8,5 +8,16 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.6",
+    "@openzeppelin/contracts": "^4.6.0",
+    "chai": "^4.2.0",
+    "dotenv": "^16.0.1",
+    "ethers": "^5.0.0",
+    "hardhat": "^2.9.7",
+    "nft.storage": "^6.3.0",
+    "node-fetch": "*"
+  },
+  "type": "module"
 }

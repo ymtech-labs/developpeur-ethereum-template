@@ -9,7 +9,7 @@ async function storeAsset() {
   const client = new NFTStorage({ token: API_KEY });
   const metadata = await client.store({
     name: "ExampleCall",
-    description: "architecture of call function in solidity",
+    description: "Example of art art nft",
     image: new File(
       [await fs.promises.readFile("assets/Call.png")],
       "Call.png",
